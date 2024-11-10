@@ -40,7 +40,7 @@ public class PropertyColumn<TGridItem, TProp> : ColumnBase<TGridItem>
     protected override void OnParametersSet()
     {
         // We have to do a bit of pre-processing on the lambda expression. Only do that if it's new or changed.
-        if (_lastAssignedProperty != Property)
+        if (_lastAssignedProperty?.ToString() != Property.ToString())
         {
             _lastAssignedProperty = Property;
             var compiledPropertyExpression = Property.Compile();
